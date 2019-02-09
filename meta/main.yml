@@ -3,7 +3,7 @@ dependencies: []
 
 galaxy_info:
         author: aorfanos
-        description: Install Drupal 7.63 on Ubuntu 
+        description: Install Drupal 7.63 on Ubuntu
         license: "MIT license"
         min_ansible_version: 2.4
         platforms:

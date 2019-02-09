@@ -1,0 +1,20 @@
+---
+
+- include_vars: vars.yaml
+
+- name: Setup virtualhost file
+  template:
+          src: nginxdef.j2
+          dest: /etc/nginx/sites-available/drupal.conf
+
+- name: Remove nginx default page from sites-enabled
+  file:
+          path: /etc/nginx/sites-enabled/default
+          state: absent
+
+- name: Create symbolic link for sites-enabled
+  file:
+          src: /etc/nginx/sites-available/drupal.conf
+          dest: /etc/nginx/sites-enabled/drupal.conf
+          state: link
+  notify: Restart nginx service

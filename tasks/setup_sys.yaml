@@ -1,0 +1,27 @@
+- include_vars: vars.yaml
+
+- name: Update cache and install required packages
+  yum:
+          name: "{{ required_packages }}"
+          state: present
+          update_cache: yes
+  become: yes
+
+- name: Download Drupal 7.63
+  get_url:
+          url: "{{ drupal_dl_url }}"
+          dest: "{{ web_path }}"
+
+- name: Extract Drupal
+  unarchive:
+          src: "{{ web_path }}/{{ drupal_tar }}"
+          dest: "{{ web_path }}"
+          owner: www-data
+          group: www-data
+          mode: 0755
+          remote_src: yes
+
+- name: Remove tar archive
+  file:
+          path: "{{ web_path }}/{{ drupal_tar }}"
+          state: absent

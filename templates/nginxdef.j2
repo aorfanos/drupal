@@ -1,0 +1,17 @@
+#automatically updated via Ansible - debug
+
+server {
+	listen 80;
+	listen [::]:80;
+
+	server_name {{ drupal_hostname }};
+	
+	root /var/www/html/drupal-7.63;
+	index index.php install.php; #remove install.php after configuration, it is solely for plug-n-play purposes
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+	}
+	
+}

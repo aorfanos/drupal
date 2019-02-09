@@ -1,0 +1,22 @@
+---
+
+required_packages:
+        - php7.0-fpm
+        - php7.0-cli
+        - php7.0-gd
+        - php7.0-mysql
+        - php7.0-xml
+        - php7.0-mbstring
+        - nginx
+        - mysql-server
+        - python-pymysql
+        - python-mysqldb
+
+web_path: "/var/www/html"
+drupal_dl_url: "https://ftp.drupal.org/files/projects/drupal-7.63.tar.gz"
+drupal_tar: "drupal-7.63.tar.gz"
+drupal_db_name: "Drupal_DB"
+drupal_db_user: "drupaluser"
+drupal_hostname: "_"
+mysql_root_pass: "rootpassword"
+

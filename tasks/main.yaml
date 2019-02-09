@@ -1,0 +1,10 @@
+---
+
+- name: Initiate setup processes
+  include: setup_sys.yaml
+
+- name: Setup DB
+  include: setup_db.yaml
+
+- name: Setup webserver
+  include: setup_webs.yaml

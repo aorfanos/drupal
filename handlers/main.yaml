@@ -4,8 +4,10 @@
   systemd:
           name: mysql
           state: restarted
+  become: yes
 
 - name: Restart nginx service
   systemd:
           name: nginx
           state: restarted
+  become: yes

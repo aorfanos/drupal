@@ -8,7 +8,6 @@
           dest: /etc/mysql/my.cnf
   notify:
           - Restart mysql service
-  become: yes
 
 - name: Setup /root/.my.cnf
   template:
@@ -27,7 +26,6 @@
           login_user: root
           name: "{{ drupal_db_name }}"
           state: present
-  become: yes
 
 - name: Create Drupal user
   mysql_user:

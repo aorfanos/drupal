@@ -2,9 +2,12 @@
 
 - name: Initiate setup processes
   include: setup_sys.yaml
+  become: yes
 
 - name: Setup DB
   include: setup_db.yaml
+  become: yes
 
 - name: Setup webserver
   include: setup_webs.yaml
+  become: yes

@@ -11,6 +11,7 @@
   get_url:
           url: "{{ drupal_dl_url }}"
           dest: "{{ web_path }}"
+  become: yes
 
 - name: Extract Drupal
   unarchive:
@@ -20,8 +21,10 @@
           group: www-data
           mode: 0755
           remote_src: yes
+  become: yes
 
 - name: Remove tar archive
   file:
           path: "{{ web_path }}/{{ drupal_tar }}"
           state: absent
+  become: yes
